@@ -17,12 +17,17 @@ body {
     font-size: 16px;
 }
 
+:root {
+    --REMF: 1.75rem;
 
+
+
+}
 
 h3 {
-    font-size: 1.75rem;
+    font-size: var(--REMF);
     margin-left: 2.5rem;
-    margin-top: 1.75rem;
+    margin-top: var(--REMF);
 }
 
 #percentage-container {
@@ -61,8 +66,30 @@ h3 {
     height: 15vh;
     width: 4vw;
     border-radius: 10px;
+    position: relative;
+    overflow: hidden;
 }
 
+.stats-bar:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-color: #3d3131;
+    animation: animate 0.8s ease-in-out forwards;
+}
+
+@keyframes animate {
+    0% {
+        bottom: 0;
+    }
+
+    100% {
+        bottom: var(--percentage);
+    }
+}
 
 @media(max-width: 1500px) {
 
